@@ -1,10 +1,17 @@
 ## The Pure Scene
 
-![The Pure Scene](https://github.com/user-attachments/assets/7683c257-738d-4a14-b675-37105b185cde)
+<p align="center">
+<img width="1917" height="1046" alt="about_the_pure_scene" src="https://github.com/user-attachments/assets/56bd1bfc-fdde-47b0-894e-6155f7e52c96" />
+</p>
 
 **The Pure Scene** es una aplicación de escritorio creada con [Python](https://www.python.org/) y [Flet](https://flet.dev/) para quitar el fondo de imágenes con [rembg](https://github.com/danielgatis/rembg), exportarlas en varios formatos y tamaños, retocar bordes y buscar imágenes gratuitas.
 
 ## Documentación por categorías
+
+<p align="center">
+<img width="1917" height="1048" alt="interfaz_the_pure_scene" src="https://github.com/user-attachments/assets/7fb80eaf-00fa-47e3-a044-03c893afe19f" />
+</p>
+
 
 | Categoría | Contenido |
 | --- | --- |
@@ -34,6 +41,13 @@ La primera vez crea el entorno virtual e instala las dependencias. Después, eli
 
 ## Estructura del proyecto
 
+<p align="center">
+
+<img width="1919" height="1045" alt="como_funciona_the_pure_scene" src="https://github.com/user-attachments/assets/89ecf2a1-f27a-4b57-be5c-1876df416340" />
+
+</p>
+
+
 ```
 /Eliminar-fondos
 ├── main.py                 # Ventana principal y flujo de procesado
@@ -59,10 +73,6 @@ La primera vez crea el entorno virtual e instala las dependencias. Después, eli
 ├── temp/                   # Preferencias y archivos temporales
 └── docs/                   # Documentación por categorías
 ```
-
-## Repositorio
-
-Código en [github.com/entreunosyceros/the_pure_scene](https://github.com/entreunosyceros/the_pure_scene).
 
 ## Contribuciones
 
