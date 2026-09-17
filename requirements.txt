@@ -1,0 +1,4 @@
+flet[desktop]==0.28.3
+rembg[cpu]
+Pillow
+pystray
