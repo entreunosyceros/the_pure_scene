@@ -13,6 +13,10 @@ import webbrowser
 import flet as ft
 
 from constants import BASE_DIR
+from _runtime_paths import data_dir
+
+# descargas/ en el home si la app está instalada por .deb
+_DATA = data_dir(BASE_DIR)
 
 FUENTES = {
     "Wikimedia Commons": {"tipo": "wikimedia", "etiqueta": "Wikimedia Commons"},
@@ -273,7 +277,7 @@ def _guardar_en_proyecto(item):
     local = _descargar(url)
     if not local:
         raise RuntimeError("archivo vacío")
-    carpeta = os.path.join(BASE_DIR, "descargas")
+    carpeta = os.path.join(_DATA, "descargas")
     os.makedirs(carpeta, exist_ok=True)
     nombre = _nombre_archivo(item)
     destino = os.path.join(carpeta, nombre)

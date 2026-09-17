@@ -3,8 +3,9 @@ import os
 from datetime import datetime
 
 from constants import BASE_DIR
+from _runtime_paths import data_dir
 
-RUTA = os.path.join(BASE_DIR, "temp", "preferencias.json")
+RUTA = os.path.join(data_dir(BASE_DIR), "temp", "preferencias.json")
 MAX_HISTORIAL = 12
 
 

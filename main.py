@@ -5,6 +5,7 @@ import flet as ft
 from PIL import Image
 
 from constants import BASE_DIR, DEFAULT_IMAGE_PATH
+from _runtime_paths import data_dir
 from editor_pincel import abrir_editor_pincel
 from editor_recorte import abrir_editor_recorte
 from eliminar_fondo import (
@@ -38,7 +39,7 @@ from preferencias import (
 from tray_icon import create_tray_icon
 from ui_layout import _tarjeta, create_ui
 
-TEMP_DIR = os.path.join(BASE_DIR, "temp")
+TEMP_DIR = os.path.join(data_dir(BASE_DIR), "temp")
 MASCARA_PATH = os.path.join(TEMP_DIR, "mascara.png")
 PREVIEW_SIZE = (240, 240)
 DEFAULT_IMAGE_ABS = os.path.join(BASE_DIR, DEFAULT_IMAGE_PATH)
@@ -587,7 +588,7 @@ async def main(page: ft.Page):
             page.update()
 
     def usar_imagen_buscada(ruta):
-        dest = estado["output_dir"] or os.path.join(BASE_DIR, "descargas")
+        dest = estado["output_dir"] or os.path.join(data_dir(BASE_DIR), "descargas")
         os.makedirs(dest, exist_ok=True)
         estado["output_dir"] = dest
         recordar_carpetas(destino=dest, origen=os.path.dirname(ruta))

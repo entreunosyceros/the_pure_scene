@@ -1,3 +1,10 @@
 # Archivos temporales de The Pure Scene (preferencias, máscaras, previews)
 temp/
 __pycache__/
+venv/
+dist/
+build/
+*.spec
+descargas/
+assets/the-pure-scene.ico
+packaging/deb-stage/
