@@ -14,20 +14,40 @@ chmod +x packaging/build_deb.sh
 El paquete queda en:
 
 ```text
-dist/the-pure-scene_1.0.0_amd64.deb
+dist/the-pure-scene_1.0.2_amd64.deb
 ```
 
 Instalación:
 
 ```bash
-sudo apt install ./dist/the-pure-scene_1.0.0_amd64.deb
+sudo apt install ./dist/the-pure-scene_1.0.2_amd64.deb
 # o
-sudo dpkg -i dist/the-pure-scene_1.0.0_amd64.deb
+sudo dpkg -i dist/the-pure-scene_1.0.2_amd64.deb
 ```
 
 Después ejecuta `the-pure-scene` o ábrelo desde el menú de aplicaciones.
 
 La **primera ejecución** crea un entorno virtual en `~/.local/share/the-pure-scene/` e instala las dependencias de Python (hace falta red; puede tardar por rembg/onnxruntime).
+
+### OpenGL / errores Gdk-CRITICAL
+
+Flet de escritorio usa Flutter + GTK y **necesita OpenGL**. The Pure Scene **no se abre en el navegador** salvo que lo pidas tú.
+
+Si al arrancar ves `Failed to initialize GLArea` o spam de `fl_keyboard_manager`, suele ser un **desajuste del driver NVIDIA** (módulo del kernel distinto de las librerías). Comprueba:
+
+```bash
+cat /proc/driver/nvidia/version
+nvidia-smi
+glxinfo -B
+```
+
+Si `nvidia-smi` dice `Driver/library version mismatch`, **reinicia el equipo** y vuelve a lanzar `the-pure-scene`. Tras el reinicio, el módulo y las librerías coinciden y la ventana de escritorio debería funcionar.
+
+Solo si quieres forzar el navegador a propósito:
+
+```bash
+TPS_VIEW=web the-pure-scene
+```
 
 Desinstalación:
 

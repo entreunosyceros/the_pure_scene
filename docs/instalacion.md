@@ -43,6 +43,8 @@ Al arrancar por primera vez:
 - rembg puede descargar el modelo de segmentación; tarda más que los siguientes inicios.
 - Aparece la ventana **The Pure Scene** y un icono en la bandeja.
 
+Si ves errores `Gdk-CRITICAL` / `Failed to initialize GLArea`, suele ser un desajuste del driver NVIDIA. Reinicia el equipo y vuelve a lanzar la app. The Pure Scene usa ventana de escritorio; no abre el navegador salvo `TPS_VIEW=web`.
+
 Los siguientes arranques reutilizan el entorno y son más rápidos.
 
 ## Carpetas que crea el programa

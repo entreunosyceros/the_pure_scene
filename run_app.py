@@ -66,9 +66,12 @@ def instalar_dependencias(python_executable):
 def ejecutar_app():
     python_executable = obtener_python_ejecutable()
     ruta_main = os.path.join(DIRECTORIO_SCRIPT, "main.py")
-    
+
     if os.path.isfile(python_executable):
-        subprocess.run([python_executable, ruta_main], check=True)
+        # Por defecto ventana de escritorio. Solo web si TPS_VIEW=web.
+        env = os.environ.copy()
+        env.setdefault("GDK_BACKEND", "x11")
+        subprocess.run([python_executable, ruta_main], check=True, env=env)
     else:
         print(f"El ejecutable no se encuentra: {python_executable}")
 

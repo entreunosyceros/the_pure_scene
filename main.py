@@ -842,4 +842,12 @@ async def main(page: ft.Page):
     page.update()
 
 
-ft.app(target=main, view=ft.AppView.FLET_APP, assets_dir="assets")
+def _resolver_vista():
+    """Ventana de escritorio por defecto. Solo navegador si TPS_VIEW=web."""
+    modo = (os.environ.get("TPS_VIEW") or "desktop").strip().lower()
+    if modo in ("web", "browser", "navegador"):
+        return ft.AppView.WEB_BROWSER
+    return ft.AppView.FLET_APP
+
+
+ft.app(target=main, view=_resolver_vista(), assets_dir="assets")
