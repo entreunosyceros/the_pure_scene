@@ -650,35 +650,14 @@ async def main(page: ft.Page):
         elif clave in ("Escape", "Esc"):
             cancelar_lote()
 
-    def on_file_drop(e):
-        datos = getattr(e, "data", "") or ""
-        rutas = parsear_rutas(str(datos))
-        if rutas:
-            aplicar_rutas(rutas)
-
     page.on_keyboard_event = on_keyboard
-    try:
-        page._add_event_handler("file_drop", on_file_drop)
-        page._add_event_handler("on_file_drop", on_file_drop)
-    except Exception:
-        pass
-
-    prev_window = page.window.on_event
-
-    def on_window_event(e):
-        if str(getattr(e, "data", "")).lower() in ("file_drop", "drop", "filesdropped"):
-            on_file_drop(e)
-        if prev_window:
-            prev_window(e)
-
-    page.window.on_event = on_window_event
 
     zona_soltar = ft.Container(
         content=ft.Column(
             [
-                ft.Text("Arrastra imágenes o una carpeta aquí", weight=ft.FontWeight.BOLD),
+                ft.Text("Cargar imágenes", weight=ft.FontWeight.BOLD),
                 ft.Text(
-                    "Pulsa para elegir archivos (Ctrl+O), una carpeta o pega rutas con Ctrl+V. Enter procesa, Esc cancela el lote.",
+                    "Pulsa aquí o usa Ctrl+O. También: carpeta, o pega rutas con Ctrl+V (copiadas desde el explorador). Enter procesa, Esc cancela el lote.",
                     size=12,
                     text_align=ft.TextAlign.CENTER,
                 ),

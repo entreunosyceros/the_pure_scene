@@ -75,7 +75,7 @@ class Menu:
                         ),
                         ft.Text("0. Selecciona la opción buscar imágenes gratuitas en el menú, y descárgalas a tu equipo.",
                                 color=ft.Colors.WHITE),
-                        ft.Text("1. Arrastra, pega (Ctrl+V) o pulsa la zona superior para elegir imágenes o una carpeta.",
+                        ft.Text("1. Pulsa la zona superior, elige carpeta, o pega rutas con Ctrl+V (copiadas desde el explorador).",
                                 color=ft.Colors.WHITE),
                         ft.Text("2. Selecciona destino y pulsa Procesar (Enter). El recorte sale con transparencia.",
                                 color=ft.Colors.WHITE),
